@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Firebase Image Upload</title>
+</head>
+<body>
+	<input type="file" id ="photo">
+	<button class="uploadImage">Upload Image</button>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCshuxD_25uXXbMCQxRQhPwL4RkINfPuTE",
+    authDomain: "attempt2-426c2.firebaseapp.com",
+    projectId: "attempt2-426c2",
+    storageBucket: "attempt2-426c2.appspot.com",
+    messagingSenderId: "534367327807",
+    appId: "1:534367327807:web:a3fab99e86da4a3ef58a8a",
+    measurementId: "G-HSEBKDF091"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  console.log(firebase)
+
+  const upload = document.querySelector('.uploadImage')
+  const ref = firebase.storage.ref()
+  const Files = document.querySelector('#photo')
+
+  upload.addEventListener('click',function(){	
+
+  	const file = Files.files[0] 
+  	
+
+  })
+
+</script>
+</html> 
