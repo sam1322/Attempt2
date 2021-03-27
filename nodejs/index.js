@@ -13,7 +13,7 @@ const PORT = 8080;
 // app.use(express.urlencoded({extended:true}))
 
 app.get('/',(req,res)=>{
-	res.sendFile(__dirname + '/public/index2.html')
+    res.sendFile(__dirname + '/public/html/index.html')
 })
 
 // app.use(bodyParser.json());
