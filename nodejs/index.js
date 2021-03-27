@@ -3,17 +3,23 @@ var multer  = require('multer')();
 const FormData = require('form-data');
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path')
 
 const app = express();
 const PORT = 8080;
 
-// app.use(express.static('public'));
+app.use(express.static('public'));
+  
+// app.use('/', express.static(path.resolve(__dirname , 'public') ) ) ;
 
-// app.use(express.json());
-// app.use(express.urlencoded({extended:true}))
+app.use('/',function(req,res,next){
+    console.log(req.url)
+    next()
+})
 
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname + '/public/html/index.html')
+    // res.sendFile(__dirname + '/public/html/index.html')
+    res.sendFile(path.join(__dirname,'public'  ,'index.html'))
 })
 
 // app.use(bodyParser.json());

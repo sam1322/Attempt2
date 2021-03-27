@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Text Recognition</title>
+	<script defer src="./js/script.js"></script>
+	<link rel="stylesheet" href="./css/styles.css">
+</head>
+
+
+<body>
+ 	<header>
+ 		<center>
+ 			<h1 class = "header">TexT ReCognition</h1>
+ 		</center>
+ 	</header>
+ 	<nav class="nav" style="text-align: center;margin: ">
+ 		<a href="/">Home</a>
+ 		<a href="/aboutus">About Us</a>
+ 		<a href="/contactus">Contact Us</a>
+ 	</nav>
+	<form  action ="#">
+		<div style="text-align:center;margin: 3px">
+		<label for="image">Select an image for extracting text </label>
+		</div>
+		<br>
+    	<div style="text-align:center;">
+ 		    <input type="file" accept="image/*" name="image">
+    		<button id="btnSubmit" >Upload</button>
+    	</div>
+</form>
+<br>
+<center>
+<div class = "container">
+	<div class="col1">
+		<p>Image</p>
+		<img id="uploadedImage" src="" >
+	</div>
+	<div class="col2">
+		<p>Extracted Text</p>
+		<div id = 'outputtext'>
+		
+		</div>
+	</div>
+</div>
+</center>
+
+</script>
+
+
+</body>
+</html>

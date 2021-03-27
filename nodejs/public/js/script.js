@@ -1,6 +1,6 @@
 const url = 'http://localhost:8080/upload'
 	const btnSubmit = document.querySelector('#btnSubmit')
-	const out = document.querySelector('#output')
+	const out = document.querySelector('#outputtext')
 	const upld = document.querySelector('#uploadedImage')
 	let index= 0
 	window.addEventListener('DOMContentLoaded', init)
@@ -26,7 +26,7 @@ const url = 'http://localhost:8080/upload'
 		}) 
 		.then(res=>res.json())
 		.then(result => {
-			console.log('Success:', result)
+			console.log('Success:', result)	
 			out.textContent = result + index
 			index++
 		})
