@@ -3,6 +3,7 @@ const url = 'http://localhost:8080/upload'
 	const out = document.querySelector('#outputtext')
 	const upld = document.querySelector('#uploadedImage')
 	let index= 0
+
 	window.addEventListener('DOMContentLoaded', init)
 
 	function init(){
@@ -33,3 +34,7 @@ const url = 'http://localhost:8080/upload'
 		.catch(error =>  console.error('Error:', error))
 
 	}
+
+	window.addEventListener('popstate' , (e)=>{
+    	console.log(e)
+	})

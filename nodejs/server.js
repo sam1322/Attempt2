@@ -12,10 +12,10 @@ app.use(express.static('public'));
   
 // app.use('/', express.static(path.resolve(__dirname , 'public') ) ) ;
 
-app.use('/',function(req,res,next){
-    console.log(req.url)
-    next()
-})
+// app.use('/',function(req,res,next){
+//     console.log(req.url)
+//     next()
+// })
 
 app.get('/',(req,res)=>{
     // res.sendFile(__dirname + '/public/html/index.html')
@@ -44,7 +44,6 @@ app.post('/upload' , multer.single('image'), (req , res) => {
             res.send(err)
         })
 })
-
 
 
 app.listen(PORT,()=>{
