@@ -8,7 +8,7 @@ const path = require('path')
 const app = express();
 const PORT = 8080;
 
-app.use(express.static('public'));
+app.use('/static',express.static('public'));
   
 // app.use('/', express.static(path.resolve(__dirname , 'public') ) ) ;
 
@@ -17,12 +17,19 @@ app.use(express.static('public'));
 //     next()
 // })
 
+
 app.get('/',(req,res)=>{
     // res.sendFile(__dirname + '/public/html/index.html')
     res.sendFile(path.join(__dirname,'public'  ,'index.html'))
 })
-
-// app.use(bodyParser.json());
+app.get('/aboutus',(req,res)=>{
+    // res.sendFile(__dirname + '/public/html/index.html')
+    res.sendFile(path.join(__dirname,'public'  ,'index.html'))
+})
+app.get('/contactus',(req,res)=>{
+    // res.sendFile(__dirname + '/public/html/index.html')
+    res.sendFile(path.join(__dirname,'public'  ,'index.html'))
+})
 
 app.post('/upload' , multer.single('image'), (req , res) => {
     const fileRecievedFromClient = req.file; 
@@ -38,13 +45,12 @@ app.post('/upload' , multer.single('image'), (req , res) => {
             }
         }).then(resp=>{
             console.log(resp.data)
-        	res.send(JSON.stringify(resp.data.status))
+            res.send(JSON.stringify(resp.data.status))
         })
         .catch((err) => {
             res.send(err)
         })
 })
-
 
 app.listen(PORT,()=>{
     console.log(`app is running on local host ${PORT}`)
