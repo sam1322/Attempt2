@@ -8,14 +8,23 @@ const url = 'http://localhost:8080/'
 
 window.upload = function(ev){
 	ev.preventDefault()
-		
+	ev.stopPropagation()
 		const btnSubmit = document.querySelector('#btnSubmit')
-		const out = document.querySelector('#output')
+		// const Out = document.querySelector('#output')
+		const out = document.querySelector('#outputtext')
+
 		const upld = document.querySelector('#uploadedImage')
+
+		if (document.body.contains(document.querySelector('.btnDownload')) ) {
+			const Obj = document.querySelector('.btnDownload')
+			Obj.remove()
+			out.textContent= ""
+		}  
 
 		const formData = new FormData();
 		const fileField = document.querySelector('input[type="file"]');
 		
+
 		document.querySelector('#uploadedImage').src = URL.createObjectURL(fileField.files[0]);
 		// formData.append('username', 'abc123'); 
 		formData.append('image', fileField.files[0]);
@@ -28,7 +37,7 @@ window.upload = function(ev){
 		.then(res=>res.json())
 		.then(result => {
 			console.log('Success:', result)	
-			const out =document.querySelector('#outputtext')
+			
 			out.textContent = result.data.text 
 			const element = document.createElement('button')
 			element.setAttribute('class','btnDownload')
