@@ -5,7 +5,7 @@ const axios = require('axios');
 const fs = require('fs');
 const path = require('path')
 const app = express();
-const PORT = 8080|| process.env.PORT 
+// const PORT =  process.env.PORT || 8080 
 const stream = require('stream');
 const { createWorker } = require('tesseract.js')
 const worker = createWorker({
@@ -100,6 +100,6 @@ app.get('/download', function(request, response){
     // Data = ""
   });
 
-app.listen(PORT,()=>{
+app.listen(process.env.PORT || 8080 ,()=>{
     console.log(`app is running on local host ${PORT}`)
 })
