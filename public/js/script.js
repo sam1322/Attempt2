@@ -3,8 +3,9 @@ import AboutUs from './views/AboutUs.js'
 import ContactUs from './views/ContactUs.js'
 // import {UploadImage} from './views/UploadImage.js'
 let index = 0
-const url = 'http://localhost:8080/'
 
+// const url = 'http://localhost:8080/'
+const url = "https://text-recognition132.herokuapp.com/"
 
 window.upload = function(ev){
 	ev.preventDefault()

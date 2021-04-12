@@ -41,24 +41,6 @@ app.get('/contactus',(req,res)=>{
 })
 
 app.post('/upload' , upload.single('image'), async (req , res) => {
-    // const fileRecievedFromClient = req.file; 
-    // //File Object sent in 'photo' field in multipart/form-data
-    // console.log(req.file)
-    // // res.send('Hello')
-    // let form = new FormData();
-    // form.append('image', fileRecievedFromClient.buffer, fileRecievedFromClient.originalname);
-    // // console.log("Form " ,form)
-    // axios.post('http://127.0.0.1:5000/show', form, {
-    //         headers: {
-    //             'Content-Type': `multipart/form-data; boundary=${form._boundary}`
-    //         }
-    //     }).then(resp=>{
-    //         console.log(resp.data)
-    //         res.send(JSON.stringify(resp.data.status))
-    //     })
-    //     .catch((err) => {
-    //         res.send(err)
-    //     })
 
     try{
 		console.log(req.file) 
