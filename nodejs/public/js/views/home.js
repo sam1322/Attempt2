@@ -15,6 +15,8 @@ export default class extends AbstractView {
  		    <input type="file" accept="image/*" name="image">
     		<button onclick = "upload(event)"  id="btnSubmit" >Upload</button>
     	</div>
+		<br>
+		
 </form>
 <br>
 
@@ -29,6 +31,7 @@ export default class extends AbstractView {
 		<div id = 'outputtext'></div>
 	</div>
 </div>
+</center>
 `
 	}
 }

@@ -3,11 +3,12 @@ import AboutUs from './views/AboutUs.js'
 import ContactUs from './views/ContactUs.js'
 // import {UploadImage} from './views/UploadImage.js'
 let index = 0
+const url = 'http://localhost:8080/'
+
 
 window.upload = function(ev){
 	ev.preventDefault()
 		
-		const url = 'http://localhost:8080/upload'
 		const btnSubmit = document.querySelector('#btnSubmit')
 		const out = document.querySelector('#output')
 		const upld = document.querySelector('#uploadedImage')
@@ -19,7 +20,7 @@ window.upload = function(ev){
 		// formData.append('username', 'abc123'); 
 		formData.append('image', fileField.files[0]);
 		console.log('this is form data ' ,formData)
-		fetch(url, {
+		fetch(url+'upload', {
 		  // mode: 'no-cors',
 		  method: 'POST', 
 		  body: formData
@@ -27,13 +28,33 @@ window.upload = function(ev){
 		.then(res=>res.json())
 		.then(result => {
 			console.log('Success:', result)	
-			document.querySelector('#outputtext').textContent = result + index
+			const out =document.querySelector('#outputtext')
+			out.textContent = result.data.text 
+			const element = document.createElement('button')
+			element.setAttribute('class','btnDownload')
+			element.setAttribute('onclick','Download()')
+			element.textContent = 'Download as PDF'
+			console.log(element)
+			document.getElementById('app').appendChild(element)
 			index++
+
 		})
 		.catch(error =>  console.error('Error:', error))
-
+	 
 	}
 
+window.Download = function(){
+	// ev.preventDefault()
+	// window.open('/download')
+	fetch(url+'download')
+  .then( res => res.blob() )
+  .then( blob => {
+    var file = window.URL.createObjectURL(blob);
+    // window.location.assign(file);
+	window.open(file, '_blank');
+  });
+
+}
 
 window.Hello = function(event){
 	console.log('hello')
